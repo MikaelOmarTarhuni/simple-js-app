@@ -1,35 +1,45 @@
-let pokemonList = [
-    {
-        name: "Pikachu",
-        type: ["electric"],
-        hight: 0.4
-    },           
-    {
-        name: "Charmander",
-        type: ["fire"],
-        hight: 0.6
-    },
-    {
-        name: "Squirtle",
-        type: ["water"],
-        hight: 0.5
-    },
-    {
-        name: "Charizard",
-        type: ["fire"],
-        hight: 1.7
-    },
-    {
-        name: "Bulbasaur",
-        type: ["water", "grass"],
-        hight: 0.7
-    }
-    
-];
+let pokemonRepository = (function () {
+    let pokemonList = [
+        {
+            name: "Pikachu",
+            type: ["electric"],
+            hight: 0.4
+        },           
+        {
+            name: "Charmander",
+            type: ["fire"],
+            hight: 0.6
+        },
+        {
+            name: "Squirtle",
+            type: ["water"],
+            hight: 0.5
+        },
+        {
+            name: "Charizard",
+            type: ["fire"],
+            hight: 1.7
+        },
+        {
+            name: "Bulbasaur",
+            type: ["water", "grass"],
+            hight: 0.7
+        }
+    ];
+  
+    return {
+      add: function(pokemon) {
+        pokemonList.push(pokemon);
+      },
+      getAll: function() {
+        return pokemonList;
+      }
+    };
+  })();
 
-pokemonList.forEach(function(pokemon) {
-    document.write(pokemon.name + " (" + pokemon.hight +")")
-});
+
+pokemonRepository.getAll().forEach(function(pokemon) {
+    document.write( pokemon.name + " (" + pokemon.hight +") " )});
 
 /**for (let i=0; i < pokemonList.length; i++){
     if (pokemonList[i].hight < 1.7 && pokemonList[i].hight > 0.3)
