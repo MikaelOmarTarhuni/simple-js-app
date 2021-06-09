@@ -27,7 +27,11 @@ let pokemonList = [
     
 ];
 
-for (let i=0; i < pokemonList.length; i++){
+pokemonList.forEach(function(pokemon) {
+    document.write(pokemon.name + " (" + pokemon.hight +")")
+});
+
+/**for (let i=0; i < pokemonList.length; i++){
     if (pokemonList[i].hight < 1.7 && pokemonList[i].hight > 0.3)
     {
         document.write(pokemonList[i].name + " (" + pokemonList[i].hight + ")" + " Wow, that is a small pokemon!");
@@ -36,4 +40,4 @@ for (let i=0; i < pokemonList.length; i++){
     {
         document.write(pokemonList[i].name + " (" + pokemonList[i].hight + ")" +" Wow, that is a big pokemon!");
     }
-}
+}**/
