@@ -1,4 +1,4 @@
-# Simple Pokédex JavaScript App
+# simple-js-app
 
 Latest update: 17.06.2021
 
