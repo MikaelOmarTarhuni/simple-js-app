@@ -1,72 +1,65 @@
-.button-class {
-	background-color: #4caf50; /* Green */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=RocknRoll+One&display=swap');
+
+:root {
+	--white: #ffffff;
+	--gray-dark: #000000;
+	--danger: #dc3545;
+	--yellow: #ffc107;
+	--font: 'Quicksand', sans-serif;
+}
+
+body {
+	background-color: var(--white);
+	color: var(--h1color);
+	font-family: var(--font);
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 1.6;
+	text-align: center;
+	margin: 20px;
+}
+
+ul {
+	list-style: none;
+}
+
+.modal-title {
+	color: var(--danger);
+}
+
+.list-group {
+	margin: 10px;
+	margin-top: 40px;
+}
+
+.list-group-item {
 	border: none;
-	color: white;
-	padding: 16px 32px;
+	width: 100%;
+	padding: 12px 28px;
+	font-family: inherit;
+	color: var(--danger);
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
+	font-size: 20px;
+	font-weight: bold;
 	margin: 4px 2px;
 	-webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
 	cursor: pointer;
-	background-color: white;
-	color: black;
-	border: 2px solid #4caf50;
-	font-family: Arial, sans-serif;
+	background-color: var(--gray-dark);
+	border: 2px solid var(--danger);
+	border-color: var(--danger);
+	border-radius: 5px;
 }
 
-#modal-container {
-	position: fixed;
-	padding: 20px;
-	box-sizing: border-box;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
-	z-index: 999;
-	overflow: auto;
-	display: grid;
-	text-align: center;
+button.btn.btn-block {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 2px 4px;
+	background-color: var(--white);
 }
 
-.title-Element {
-	text-align: left;
-}
-
-.modal {
-	margin: auto;
-	display: inline-block;
-	box-sizing: border-box;
-	background: #fff;
-	padding: 15px;
-	width: 100%;
-	max-width: 700px;
-}
-
-.modal-close {
-	float: right;
-	-webkit-appearance: none;
-	border: 0;
-	background: none;
-	color: #777;
-	text-decoration: underline;
-}
-
-.modal h1 {
-	margin-top: 0;
-}
-
-.modal p {
-	margin-bottom: 0;
-}
-
-#modal-container {
-	display: none;
-}
-
-#modal-container.is-visible {
-	display: block;
+#pokemonModal {
+	color: var(--h5color);
 }
