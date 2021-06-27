@@ -9,7 +9,7 @@
 }
 
 body {
-	background-color: var(--white);
+	background-color: var(--gray-dark);
 	color: var(--h1color);
 	font-family: var(--font);
 	font-weight: 500;
@@ -29,7 +29,7 @@ ul {
 
 .list-group {
 	margin: 10px;
-	margin-top: 40px;
+	margin-top: 10px;
 }
 
 .list-group-item {
