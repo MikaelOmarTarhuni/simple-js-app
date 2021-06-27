@@ -58,16 +58,9 @@ let pokemonRepository = (function() {
         item.imageUrl = details.sprites.front_default;
         item.imageUrlBack = details.sprites.back_default;
         item.height = details.height;
-        item.types = [];
-        for (var i=0; i < details.types.length; i++) {
-          item.types.push(details.types[i].type.name);
-        }
+        item.types = details.types.length ? details.abilities.map(ability => ability.name) : []
 
-        item.abilities = [];
-        for (var i=0; i < details.abilities.length; i++) {
-          item.abilities.push(details.abilities[i].ability.name);
-        }
-  
+        item.abilities = details.abilities.length ? details.abilities.map(ability => ability.name) : []
       }).catch(function (e) {
         console.error(e);
       });
@@ -90,7 +83,7 @@ let pokemonRepository = (function() {
   
       let nameElement = $('<h1>' + item.name + '</h1>');
   
-      let pokTypes = $('<p>' + 'Types: ' + item.types + '</p>');
+      let pokTypes = $('<p>' + 'Type: ' + item.types + '</p>');
   
       let pokAbilities = $('<p>' + 'Abilities: ' + item.abilities + '</p>');
   
