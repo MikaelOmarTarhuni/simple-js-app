@@ -2,7 +2,6 @@ let pokemonRepository = (function() {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     let searchInput = document.querySelector("#searchIn");
-    let pokemon = "";
   
     function add(pokemon) {
       if (typeof pokemon === 'object' &&
@@ -58,9 +57,8 @@ let pokemonRepository = (function() {
         item.imageUrl = details.sprites.front_default;
         item.imageUrlBack = details.sprites.back_default;
         item.height = details.height;
-        item.types = details.types.length ? details.abilities.map(ability => ability.name) : []
-
-        item.abilities = details.abilities.length ? details.abilities.map(ability => ability.name) : []
+        item.types = []; for (var i=0; i < details.types.length; i++) { item.types.push(details.types[i].type.name); }
+        item.abilities = []; for (var i=0; i < details.abilities.length; i++) { item.abilities.push(details.abilities[i].ability.name); }
       }).catch(function (e) {
         console.error(e);
       });
@@ -76,7 +74,6 @@ let pokemonRepository = (function() {
       pokemonRepository.loadDetails(item).then(function() {
       let modalBody = $(".modal-body");
       let modalTitle = $(".modal-title");
-      let modalHeader = $(".modal-header");
   
       modalBody.empty();
       modalTitle.empty();
@@ -87,12 +84,12 @@ let pokemonRepository = (function() {
   
       let pokAbilities = $('<p>' + 'Abilities: ' + item.abilities + '</p>');
   
-      let heightElement = $('<p>' + 'Height: ' + item.height + ' m' + '</p>');
+      let heightElement = $('<p>' + 'Height: ' + item.height  + '</p>');
   
-      let pokImageFront = $('<img class="modal-img" style="width:20%">');
+      let pokImageFront = $('<img class="modal-img" style="width:40%">');
       pokImageFront.attr('src', item.imageUrl);
   
-      let pokImageBack = $('<img class="modal-img" style="width:20%">');
+      let pokImageBack = $('<img class="modal-img" style="width:40%">');
       pokImageBack.attr('src', item.imageUrlBack);
   
       searchInput.addEventListener('input', function(){
@@ -120,12 +117,12 @@ let pokemonRepository = (function() {
   }
   
   return {
-    add: add,
-    getAll: getAll,
-    addListItem: addListItem,
-    loadList: loadList,
-    loadDetails: loadDetails,
-    showDetails: showDetails
+    add,
+    getAll,
+    addListItem,
+    loadList,
+    loadDetails,
+    showDetails
   };
   })();
   
